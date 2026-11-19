@@ -1,0 +1,219 @@
+.access-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fbfbfe;
+  color: #22223b;
+}
+.login-art {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at 90% 75%,
+    #5a468a 0%,
+    #303053 41%,
+    #1d1d32 77%
+  );
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(30px, 5vw, 85px);
+  justify-content: space-between;
+  min-height: 660px;
+}
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 31px;
+  letter-spacing: -1.6px;
+  font-weight: 740;
+}
+.login-brand span {
+  display: grid;
+  place-items: center;
+  background: #8970ed;
+  color: white;
+  border-radius: 11px;
+  width: 39px;
+  height: 39px;
+}
+.art-title {
+  margin: 55px 0 20px;
+  z-index: 1;
+}
+.art-title > span,
+.auth-eyebrow {
+  letter-spacing: 2px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #c4b5fa;
+}
+.art-title h2 {
+  font-size: clamp(52px, 5.2vw, 92px);
+  line-height: 1.01;
+  letter-spacing: -4px;
+  margin: 16px 0;
+}
+.calendar-art {
+  margin: 12px 0 36px 13%;
+  width: 96%;
+  max-width: 470px;
+  transform: perspective(700px) rotateY(-17deg) rotateX(17deg) rotateZ(-9deg);
+  border: 1px solid #a095bd;
+  background: linear-gradient(145deg, #78708d88, #50466d);
+  padding: 17px;
+  border-radius: 19px;
+  box-shadow:
+    6px 7px #423b59,
+    8px 9px #8f7daa,
+    14px 17px #3d3456,
+    25px 32px 44px #17152f88;
+}
+.art-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #e0d8f7;
+  margin-bottom: 17px;
+}
+.art-strip svg {
+  margin-right: auto;
+}
+.art-strip i {
+  width: 5px;
+  height: 5px;
+  background: #c1b4d9;
+  border-radius: 50%;
+}
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.date-cell {
+  aspect-ratio: 1.26;
+  display: grid;
+  place-items: center;
+  background: #c6bad41c;
+  border-radius: 6px;
+  color: #e4ddee;
+  font-size: 12px;
+  font-style: normal;
+}
+.date-cell.c5,
+.date-cell.c6,
+.date-cell.c16,
+.date-cell.c17 {
+  background: #ae97df;
+  color: #241e39;
+}
+.date-cell.c10,
+.date-cell.c21 {
+  background: #a2c9bf;
+  color: #253b36;
+}
+.date-cell.c24 {
+  background: #f5dda5;
+  color: #574c32;
+}
+.art-footer {
+  color: #d6d0e4;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+}
+.access-card {
+  width: min(100%, 455px);
+  align-self: center;
+  justify-self: center;
+  padding: 36px;
+}
+.auth-eyebrow {
+  color: #6855b8;
+}
+.access-card h1 {
+  font-size: 38px;
+  letter-spacing: -1.7px;
+  margin: 12px 0 9px;
+}
+.access-card p {
+  color: #66677a;
+  line-height: 1.6;
+}
+.access-card form,
+.access-card label {
+  display: grid;
+  gap: 8px;
+}
+.access-card form {
+  gap: 18px;
+  margin-top: 28px;
+}
+.access-card label {
+  font-size: 13px;
+  font-weight: 650;
+}
+.access-card input {
+  padding: 13px;
+  border: 1px solid #c6c7d3;
+  border-radius: 8px;
+  font: inherit;
+  color: #262638;
+  background: white;
+}
+.access-card button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  padding: 13px;
+  font: inherit;
+  background: #6952d5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.access-card button:disabled {
+  opacity: 0.62;
+  cursor: default;
+}
+.access-card button.secondary {
+  background: none;
+  color: #634db6;
+  padding: 12px 0;
+  margin: 6px 0;
+}
+.access-card p.setup-note {
+  font-size: 12px;
+  background: #f1eefb;
+  padding: 10px 12px;
+  border-radius: 7px;
+}
+.compact {
+  display: none;
+}
+.access-shell:has(> .access-card:only-child) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 720px) {
+  .access-shell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-art {
+    display: none;
+  }
+  .compact {
+    display: flex;
+    margin-bottom: 52px;
+  }
+  .access-card {
+    padding: 27px;
+  }
+}

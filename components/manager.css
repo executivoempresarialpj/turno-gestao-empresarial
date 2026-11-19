@@ -1,0 +1,316 @@
+.mg {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  color: inherit;
+}
+.mgheading,
+.mgtools,
+.mgdialog header,
+.mgdialog footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.mgheading,
+.mgdialog header {
+  justify-content: space-between;
+}
+.mgheading {
+  margin-bottom: 24px;
+}
+.mg h1 {
+  font-size: clamp(26px, 3vw, 36px);
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+  margin: 0 0 7px;
+}
+.mgheading p,
+.mgmuted,
+.mg small {
+  color: #687781;
+}
+.mgheading p {
+  margin: 0;
+}
+.mgpanel,
+.mgdialog {
+  background: var(--panel, #fff);
+  border: 1px solid #dbe2e5;
+  border-radius: 16px;
+  padding: 24px;
+}
+.mg input,
+.mg select,
+.mg textarea,
+.mg button,
+.mgdialog input,
+.mgdialog select,
+.mgdialog textarea,
+.mgdialog button {
+  font: inherit;
+  color: inherit;
+  border: 1px solid #cfd9da;
+  border-radius: 8px;
+  background: transparent;
+  padding: 9px 12px;
+  max-width: 100%;
+  min-height: 42px;
+}
+.mg button,
+.mgdialog button {
+  cursor: pointer;
+  font-weight: 600;
+}
+.mg button:disabled,
+.mgdialog button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+.mg .mgprimary,
+.mgdialog .mgprimary,
+.mgsegment button[aria-pressed="true"] {
+  background: #175c4a;
+  color: white;
+  border-color: #175c4a;
+}
+.mg button:hover,
+.mgdialog button:hover {
+  box-shadow: 0 1px 6px #13251921;
+}
+.mgfield {
+  display: grid;
+  gap: 5px;
+  font-weight: 550;
+  font-size: 14px;
+}
+.mgdialog {
+  color: #21332f;
+  max-width: min(520px, 94vw);
+  width: 100%;
+  max-height: 88vh;
+  margin: auto;
+  box-shadow: 0 24px 80px #14282433;
+}
+.mgdialog::backdrop {
+  background: #10251f77;
+}
+.mgdialog header {
+  margin-bottom: 18px;
+}
+.mgdialog h2,
+.mgpanel h2 {
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+.mgdialog form {
+  display: grid;
+  gap: 14px;
+}
+.mgdialog footer {
+  justify-content: flex-end;
+}
+.mgdialog fieldset {
+  border: 1px solid #dbe2e5;
+  border-radius: 8px;
+  padding: 10px;
+}
+.mgcheck {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mgcheck input {
+  min-height: auto;
+}
+.mghour {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 0;
+}
+.mghour > * {
+  flex: 1;
+  min-width: 70px;
+}
+.mghour button {
+  min-width: 32px;
+  flex: 0;
+}
+.mgtools {
+  margin-bottom: 16px;
+}
+.mgtable {
+  overflow-x: auto;
+}
+.mgtable table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.mgtable th {
+  font-size: 12px;
+  color: #687781;
+}
+.mgtable td,
+.mgtable th {
+  padding: 14px 8px;
+  border-bottom: 1px solid #e6ebea;
+}
+.mgtable td:last-child {
+  text-align: right;
+}
+.mgerror,
+.mgnotice {
+  padding: 10px 14px;
+  background: #fff2ee;
+  color: #863720;
+  border-radius: 8px;
+}
+.mgnotice {
+  background: #e7f4ed;
+  color: #126247;
+}
+.mgrow {
+  width: 100%;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  text-align: left;
+  margin: 7px 0;
+}
+.mgrow span {
+  flex: 1;
+}
+.mgrow small {
+  display: block;
+  font-weight: 400;
+}
+.mgstatus {
+  font-size: 12px;
+  font-style: normal;
+  border-radius: 14px;
+  padding: 4px 9px;
+}
+.mgstatus.pending {
+  background: #fff1c2;
+  color: #765600;
+}
+.mgstatus.confirmed {
+  background: #dcecff;
+  color: #184c80;
+}
+.mgstatus.in_progress {
+  background: #eee5ff;
+  color: #6436a2;
+}
+.mgstatus.completed {
+  background: #d9f5e4;
+  color: #1d6641;
+}
+.mgstatus.cancelled {
+  background: #fce1df;
+  color: #8c3931;
+}
+.mgstatus.no_show {
+  background: #e5e6eb;
+  color: #494b59;
+}
+.mgmonth {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin: 12px 0;
+}
+.mgmonth button {
+  padding: 8px 4px;
+}
+.mgmonth small {
+  display: block;
+  font-weight: 400;
+}
+.mgsegment {
+  display: flex;
+  gap: 3px;
+}
+.mgdialog textarea {
+  resize: vertical;
+}
+.mgdialog input[type="color"] {
+  width: 100%;
+}
+@media (max-width: 650px) {
+  .mgpanel,
+  .mgdialog {
+    padding: 14px;
+  }
+  .mgtools {
+    gap: 6px;
+  }
+  .mgtools input,
+  .mgtools select {
+    flex: 1;
+    min-width: 130px;
+  }
+  .mgrow {
+    flex-wrap: wrap;
+  }
+  .mgrow span {
+    min-width: 110px;
+  }
+  .mgheading {
+    align-items: flex-start;
+  }
+  .mgtable td,
+  .mgtable th {
+    padding: 10px 5px;
+  }
+  .mgrow > b:last-child {
+    font-size: 12px;
+  }
+}
+[data-theme="dark"] .mgpanel,
+[data-theme="dark"] .mgdialog {
+  background: #1c2926;
+  color: #eef5f2;
+  border-color: #395049;
+}
+[data-theme="dark"] .mg select option,
+[data-theme="dark"] .mgdialog select option {
+  background: #1c2926;
+  color: #eef5f2;
+}
+.mgdialog dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.mgdialog dd {
+  margin: 0;
+}
+.mgpanel,
+.mgdialog {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--line);
+}
+.mg .mgprimary,
+.mgdialog .mgprimary,
+.mgsegment button[aria-pressed="true"] {
+  background: #624bd7;
+  border-color: #624bd7;
+}
+.mgheading p,
+.mgmuted,
+.mg small {
+  color: var(--muted);
+}
+[data-theme="dark"] .mgpanel,
+[data-theme="dark"] .mgdialog,
+[data-theme="dark"] .mg select option,
+[data-theme="dark"] .mgdialog select option {
+  background: var(--card);
+  color: var(--ink);
+  border-color: var(--line);
+}

@@ -1,0 +1,96 @@
+.platform {
+  min-height: 100vh;
+  background: #f4f7f6;
+  color: #172c28;
+  font:
+    15px Inter,
+    system-ui,
+    sans-serif;
+}
+.platform header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 6vw;
+  background: #183d34;
+  color: white;
+}
+.platform-body {
+  max-width: 1240px;
+  margin: auto;
+  padding: 28px 4vw;
+}
+.platform nav {
+  display: flex;
+  gap: 20px;
+}
+.platform nav a {
+  color: #285d4e;
+}
+.platform h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.06em;
+}
+.platform-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 12px;
+}
+.platform article,
+.platform section {
+  border: 1px solid #dce6e1;
+  border-radius: 15px;
+  background: white;
+  padding: 22px;
+}
+.platform article strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 24px;
+}
+.platform section {
+  margin-top: 24px;
+}
+.platform summary {
+  cursor: pointer;
+  padding: 14px 0;
+  font-weight: 600;
+}
+.platform details {
+  border-top: 1px solid #dce6e1;
+}
+.platform form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+  margin: 12px 0;
+}
+.platform header form {
+  margin: 0;
+}
+.platform label {
+  display: grid;
+  gap: 6px;
+}
+.platform input,
+.platform textarea,
+.platform select,
+.platform button {
+  border: 1px solid #c5d4cd;
+  background: white;
+  color: #183328;
+  font: inherit;
+  border-radius: 7px;
+  padding: 10px;
+  max-width: 100%;
+}
+.platform button {
+  background: #205941;
+  color: white;
+  cursor: pointer;
+}
+.platform p[role="status"] {
+  width: 100%;
+}
+.platform{background:#f4f5fa;color:#24243c}.platform header{background:#1e1c34;padding:22px 5vw}.platform header strong{font-size:26px;letter-spacing:-1px}.platform header small{font-size:10px;letter-spacing:2px;margin-left:18px;color:#c3b6f6}.platform-body{max-width:1400px;padding:32px 4vw}.platform nav{gap:8px;margin-bottom:32px}.platform nav a{padding:10px 20px;border-radius:9px;background:white;color:#6251bd;text-decoration:none;font-weight:600;border:1px solid #e4e2ef}.platform h1{font-size:38px;letter-spacing:-1.5px;margin-bottom:10px}.platform-intro{color:#77788c;margin-bottom:28px}.platform-metrics{grid-template-columns:repeat(4,1fr);gap:16px}.platform article{border-color:#e5e3ef;padding:22px;box-shadow:0 3px 12px #302b4a04}.platform article small{color:#77788c}.platform article strong{color:#5243a6;font-size:30px}.platform section{border-color:#e5e3ef;padding:26px}.platform section h2{font-size:24px;margin:0 0 20px}.platform details{border:1px solid #e5e3ef;border-radius:10px;margin:12px 0;padding:0 18px}.platform details[open]{padding-bottom:18px}.platform summary{padding:18px 0}.platform form{gap:16px;align-items:flex-end}.platform label{flex:1 1 190px;font-size:13px;font-weight:600;color:#58586e}.platform input,.platform select,.platform textarea{min-height:44px;width:100%;border-color:#dcd9e7;color:#29263e}.platform button{background:#6b54d3;border:0;padding:13px 20px;font-weight:600}.platform form p[role=status]{padding:14px;background:#eeebfa;border-radius:8px;color:#44328d}.platform input[type=checkbox]{width:auto;min-height:0}.platform input:focus{outline:2px solid #a895f0;outline-offset:2px}@media(max-width:720px){.platform-metrics{grid-template-columns:repeat(2,1fr)}.platform h1{font-size:30px}.platform section{padding:16px}.platform header small{display:block;margin:4px 0}.platform form button{width:100%}}

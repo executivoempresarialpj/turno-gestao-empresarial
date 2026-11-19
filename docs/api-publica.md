@@ -1,0 +1,7 @@
+# API pública
+
+A página pública usa exclusivamente `POST /api/reservas?op=...`. O servidor valida a operação e o corpo com uma lista de esquemas Zod, limita o corpo a 16 KiB e usa uma chave de serviço mantida no servidor. As RPCs públicas do banco recusam chamadas diretas com o papel anônimo. Para a agenda interna, usuários autenticados têm somente as RPCs de consulta de disponibilidade e criação sob a própria associação ativa.
+
+O PostgreSQL contabiliza os pedidos em janelas de um minuto, em transação separada do processamento da reserva. Pedidos inválidos e conflitos também consomem a cota. Por origem são 90 leituras e 12 mutações por minuto; para a plataforma, 4.000 leituras e 500 mutações. O retorno 429 informa `Retry-After: 60`. O banco guarda temporariamente um HMAC do endereço, sem persistir o IP na tabela de limites. Registros de janelas antigas são apagados na próxima chamada. A reserva tem limites adicionais por telefone e estabelecimento; o token privado também tem limite de remarcações.
+
+Na Vercel a aplicação usa o cabeçalho de origem fornecido pela infraestrutura. Em hospedagem própria, `TRUSTED_CLIENT_IP_HEADER` só deve ser preenchido se o proxy de entrada remover o valor fornecido pelo visitante e gravar o endereço verificado. Sem esse proxy, todos os clientes compartilham a mesma cota de origem. Proteção de volume antes de atingir o servidor depende da infraestrutura de hospedagem.

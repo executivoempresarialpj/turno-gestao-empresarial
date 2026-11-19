@@ -1,0 +1,2 @@
+insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types) values('business-images','business-images',true,5242880,array['image/jpeg','image/png','image/webp']) on conflict(id) do nothing;
+create policy business_image_upload on storage.objects for insert to authenticated with check(bucket_id='business-images' and exists(select 1 from public.tenants t where t.id::text=(storage.foldername(name))[1] and public.can_manage(t.id)));

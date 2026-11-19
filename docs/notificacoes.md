@@ -1,0 +1,12 @@
+# Confirmação de reservas
+
+A transação de reserva grava a notificação do painel e, para os canais aceitos pelo consumidor, inclui tarefas em `private.delivery_jobs`. Elas ficam separadas dos dados disponíveis a funcionários. A fila consulta os dados da reserva no momento do envio. Reservas encerradas, vencidas, suspensas ou com avisos enfileirados há mais de 12 horas expiram.
+
+1. Configure `CRON_SECRET` como um segredo aleatório no servidor Vercel. O cron do projeto chama `GET /api/notifications/dispatch` com `Authorization: Bearer <CRON_SECRET>`. O agendamento a cada minuto exige um plano Vercel compatível. Em outro host, configure uma tarefa periódica equivalente.
+2. Para e-mail, verifique o domínio no Resend, configure uma chave com permissão de envio em `RESEND_API_KEY` e um endereço desse domínio em `RESEND_FROM`.
+3. Para WhatsApp, configure um número do WhatsApp Business Cloud API, um token de usuário de sistema com permissão de envio e um modelo de utilidade aprovado pela Meta em português do Brasil. O modelo deve ter quatro parâmetros posicionais no corpo, nesta ordem — estabelecimento, serviço, profissional e data/hora com fuso. Configure `WHATSAPP_ACCESS_TOKEN`, `WHATSAPP_PHONE_ID`, `WHATSAPP_GRAPH_VERSION` (uma versão suportada pela conta) e `WHATSAPP_TEMPLATE` (nome aprovado). Números nacionais recebem o DDI 55.
+4. Faça uma reserva de teste autorizando o canal e confira a referência do provedor no banco. Veja a confirmação de entrega na interface do provedor. O estado `accepted` indica aceitação pelo provedor. A implantação usa um remetente transacional da plataforma compartilhado entre estabelecimentos.
+
+Cada chamada retira até cinco tarefas com bloqueio concorrente. Resend recebe uma chave de idempotência por tarefa. No WhatsApp, respostas ambíguas ou perda da conexão ficam em `uncertain` para reconciliação pelo operador. Respostas 429 entram novamente na fila e o limite é de seis tentativas processadas. Campos de erro armazenam apenas códigos. Credenciais ausentes desabilitam a retirada para o respectivo canal. O consumidor recebe os detalhes da reserva; seu link privado é disponibilizado diretamente no navegador.
+
+Com as dependências de testes e a variável `TEST_DATABASE_URL` configuradas conforme o guia de instalação, execute `python tests/delivery.py` para testar o consentimento, a retirada exclusiva, a nova tentativa e a gravação da referência no PostgreSQL.

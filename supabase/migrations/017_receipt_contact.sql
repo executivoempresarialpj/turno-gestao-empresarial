@@ -1,0 +1,4 @@
+create or replace function public.booking_receipt(p_token uuid) returns jsonb language sql stable security definer set search_path=public,pg_temp as $$
+ select jsonb_build_object('id',a.id,'status',a.status,'starts_at',a.starts_at,'ends_at',a.ends_at,'price',a.price_cents,'service',s.name,'professional',p.name,'tenant',t.name,'timezone',t.timezone,'slug',t.slug,'service_id',a.service_id,'professional_id',a.professional_id,'policy',cfg.cancellation_policy,'customer_name',c.name,'customer_phone',c.phone)
+ from booking_secrets k join appointments a on a.id=k.appointment_id join services s on s.id=a.service_id join professionals p on p.id=a.professional_id join tenants t on t.id=a.tenant_id join customers c on c.id=a.customer_id left join tenant_settings cfg on cfg.tenant_id=t.id where k.token_hash=sha256(uuid_send(p_token))
+$$;

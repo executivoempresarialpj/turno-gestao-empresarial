@@ -1,5 +1,11 @@
 # Turno • SaaS de agendamentos
 
+## Instalação atual pelo navegador
+
+Consulte [INSTALACAO.md](INSTALACAO.md) para publicar pelo GitHub, Vercel e Supabase sem instalar programas no computador. Sistema publicado: https://turno-six-rho.vercel.app/login.
+
+A versão atual usa criação de empresas com usuário e senha, plano único de R$ 80 com cobrança manual, horários por data, serviços com preços e recebimentos avulsos. As instruções históricas abaixo sobre equipe, convites e Asaas não são necessárias para essa instalação; siga o guia atual.
+
 Aplicação em português com Next.js App Router, React, TypeScript e PostgreSQL no Supabase. O cliente agenda em `/agendar/<slug>`, recebe um comprovante em `/reserva/<token>` e pode consultá-lo sem login. A equipe entra em `/login` e o operador da plataforma em `/superadmin`.
 
 ## Estrutura
